@@ -12,6 +12,8 @@ class Page(HTMLParser):
         self.ids, self.refs, self.anchors = set(), [], []
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == 'img' and a.get('data-src'):
+            assert a.get('src'), 'Image depends on JavaScript to set its source'
         if a.get('id'): self.ids.add(a['id'])
         for name in ('src', 'data-src', 'data-image', 'poster'):
             if a.get(name): self.refs.append(a[name])

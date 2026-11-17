@@ -14,6 +14,12 @@ python -m http.server 4174 --bind 127.0.0.1
 
 Then open http://127.0.0.1:4174/ . Use an HTTP server rather than opening `index.html` as a file, because the original runtime loads script modules.
 
+Keep the server running while viewing the page: scrolling loads additional images and effect scripts. If it stops, restart it and reload the page. Backgrounds have their original Play/Pause controls. Images also have native `src` attributes, so they do not depend solely on Squarespace's JavaScript loader.
+
+### Cloudflare Pages
+
+Connect this repository, select `main`, use no framework and no build command, and publish the repository root (`/`). No environment variables are required. Verify the provided `pages.dev` URL before adding a custom domain or changing DNS.
+
 ## What is preserved
 
 - Original page markup, editorial text, captions, links, responsive grids, typography, colors, and section styling.

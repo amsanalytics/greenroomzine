@@ -36,3 +36,11 @@ Source and local export were compared at 1280 × 900 desktop and 390 × 844 mobi
 ## Practical limits
 
 This is a faithful static export, not a replacement Squarespace editor. Eight Datawrapper/Embedly embeds and outbound links require internet access. A nonessential Squarespace census telemetry POST has no backend on static hosting; it is not needed for page display or interaction. Existing external links were preserved, not comprehensively audited for availability. The current site and DNS settings were not changed, and GitHub Pages was not enabled by this export.
+
+## Preview repair and recheck
+
+The first temporary preview server stopped, preventing deferred image and script requests from completing. Restarting it and reloading restored the visual assets. Background playback was resumed after the prior pause-control test. Successive screenshots confirmed that the isometric pattern moves, and the native video time advanced while visible.
+
+All 46 image elements now have native source attributes, including 19 gallery images that previously depended on JavaScript to assign a source. After traversing the page, all 46 images decoded successfully. The local validator now rejects images that rely solely on data-src. It passes 212 asset references and 17 internal anchors.
+
+Rechecked the 390-pixel mobile layout: no horizontal overflow and no images without a source. Evidence: `docs/restored-background.jpg` and `docs/restored-mobile.jpg`. Cloudflare preview verification is recorded separately after deployment; the custom domain remains on Squarespace.
